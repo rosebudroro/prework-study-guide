@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -60,4 +60,41 @@
     </footer>
     <script src="./assets/script.js"></script>
   </body>
+</html> -->
+
+<meta charset="UTF-8">
+  <title>Hotels API</title>
+</head>
+<body>
+  <h1>Chicago Hotels from Travel Advisor</h1>
+  <ul id="hotels"></ul>
+
+  <script>
+
+    const apiUrl = 'https://api.traveladvisor.com/api/hotels/chicago?key=47d15a84a6mshee0e29e70c0d1e3p1a9933jsnb76da1bf5789';
+
+
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+
+        const hotels = data.data;
+
+
+      //   hotels.forEach(hotel => {
+      //     const li = document.createElement('li');
+      //     li.textContent = hotel.name;
+      //     document.getElementById('hotels').appendChild(li);
+      //   });
+      // })
+      // .catch(error => console.error(error));
+
+
+      fetch('https://travel-advisor.p.rapidapi.com/hotel-filters/v2/list?lang=en_US&units=km&currency=USD', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+
+  </script>
+</body>
 </html>
