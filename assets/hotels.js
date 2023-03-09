@@ -3,7 +3,6 @@
 
 // var zipcode = document.createElementbyId('zipcode');
 // var searchbutton = document.createElementbyId('searchbutton');
-// var content = document.createElementbyId('Content');
 
 function getApi () {
   fetch("https://hotels4.p.rapidapi.com/properties/v2/list", {
@@ -58,16 +57,17 @@ function getApi () {
   .then(response => response.json())
   .then(data => {
   // Loop through the properties array and log the value of the name key for each property
-   data.data.propertySearch.properties.forEach(property => {
+
+   data.data.propertySearch.properties.forEach((property) => {
       console.log(property.name);
-      var hotelName = document.createElement("h3");
-      hotelName.textContent = data[propertySearch].property.name;
-      content.appendChild(hotelName);
+      var hotelName = document.createElement('h3');
+      hotelName.textContent = property.name;
+      document.getElementById('Content').appendChild(hotelName);
    });
   })
 
   .catch(error => console.error(error));
 }
 
-getApi();
-// searchbutton.addEventListener('click', getApi);
+// getApi();
+document.getElementById('searchbutton').addEventListener('click', getApi);
